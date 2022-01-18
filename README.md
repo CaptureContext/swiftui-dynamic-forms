@@ -11,18 +11,20 @@
   - [x] `DynamicText`
   - [x] `DynamicButton`
   - [x] `DynamicStack`
-  - [ ] `DynamicTextInput`
-  - [ ] `DynamicSpacer`
+  - [x] `DynamicTextField`
+  - [x] `DynamicTextView`
+  - [x] `DynamicSpacer`
   - [ ] `DynamicDragField`
   - [ ] `DynamicDropField`
 - **Features**
   - [ ] Codable support
   - [ ] Custom modificators
 - **To-think-about**
-  - [ ] API improvements for state management
-  - [ ] API improvements for action handling
-  - [ ] API for custom views
-  - [ ] Helper for derived (optional/collection) `Binding`s
+  - API improvements for state management
+  - API improvements for action handling
+  - API for custom views
+  - Helper for derived (optional/collection) `Binding`s
+  - Separate `DynamicForms` target into `DynamicForms` and `DynamicFormsUI` targets
 
 
 
@@ -91,8 +93,22 @@
 - Handle button actions
 
   ```swift
-  DynamicFormClient.shared.publisher // AnyPublisher<ActionID, Never>
-  DynamicFormClient.shared.publisher(for: "actionID") // AnyPublisher<Void, Never>
+  // Returns AnyPublisher<Event, Never> where Event is
+  // Event {
+  //   id: DynamicElementIdentifier
+  //   action: DynamicElementActionIdentifier
+  // }
+  DynamicFormClient.shared.publisher
+  
+  // Filters events and returns AnyPublisher<Void, Never>
+  DynamicFormClient.shared.publisher(
+    for: .init(id: "element", action: "tap")
+  )
+  
+  // Filters events by actionID and returns AnyPublisher<Void, Never>
+  DynamicFormClient.shared.publisher(
+    for: "actionID"
+  )
   ```
 
 

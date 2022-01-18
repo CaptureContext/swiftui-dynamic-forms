@@ -4,11 +4,11 @@ import Prelude
 
 public struct DynamicFormClient {
   public init() {
-    self.init(PassthroughSubject<AnyHashable, Never>())
+    self.init(PassthroughSubject<Event, Never>())
   }
   
   public init<S: Subject>(_ subject: S)
-  where S.Output == AnyHashable, S.Failure == Never {
+  where S.Output == Event, S.Failure == Never {
     self.init(
       send: .init(subject.send),
       publisher: subject.eraseToAnyPublisher()
@@ -17,21 +17,44 @@ public struct DynamicFormClient {
   
   public init(
     send: DynamicFormClient.Operations.SendEvent,
-    publisher: AnyPublisher<AnyHashable, Never>
+    publisher: AnyPublisher<Event, Never>
   ) {
     self.send = send
     self.publisher = publisher
   }
   
   public var send: Operations.SendEvent
-  public var publisher: AnyPublisher<AnyHashable, Never>
+  public var publisher: AnyPublisher<Event, Never>
   
-  public func publisher(for actionID: AnyHashable) -> AnyPublisher<Void, Never> {
+  public func publisher(for event: Event) -> AnyPublisher<Void, Never> {
     return publisher
-      .compactMap { receivedActionID in
-        equal(receivedActionID, actionID) ? () : nil
+      .compactMap { receivedEvent in
+        equal(receivedEvent, event) ? () : nil
       }
       .eraseToAnyPublisher()
+  }
+  
+  public func publisher(for action: DynamicElementActionIdentifier) -> AnyPublisher<Void, Never> {
+    return publisher
+      .compactMap { receivedEvent in
+        equal(receivedEvent.action, action) ? () : nil
+      }
+      .eraseToAnyPublisher()
+  }
+}
+
+extension DynamicFormClient {
+  public struct Event: Equatable, Hashable {
+    public init(
+      id: DynamicElementIdentifier,
+      action: DynamicElementActionIdentifier
+    ) {
+      self.id = id
+      self.action = action
+    }
+    
+    public var id: DynamicElementIdentifier
+    public var action: DynamicElementActionIdentifier
   }
 }
 
@@ -45,7 +68,7 @@ extension DynamicFormClient {
 
 extension DynamicFormClient.Operations {
   public struct SendEvent: Function {
-    public typealias Input = AnyHashable
+    public typealias Input = DynamicFormClient.Event
     public typealias Output = Void
     
     public init(_ call: @escaping Signature) {

@@ -3,7 +3,9 @@ import CasePaths
 public indirect enum DynamicElementNode: Equatable, Identifiable {
   case primitive(DynamicUINode)
   case group([DynamicElementNode])
-  
+}
+
+extension DynamicElementNode {
   public var id: AnyHashable {
     switch self {
     case let .primitive(node): return node.id

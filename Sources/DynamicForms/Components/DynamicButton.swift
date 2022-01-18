@@ -1,13 +1,28 @@
 public struct DynamicButton: DynamicElement, Identifiable {
-  public var id: AnyHashable { action }
+  public var id: DynamicElementIdentifier
   public var label: DynamicElementNode
-  public var action: AnyHashable
+  public var action: DynamicElementActionIdentifier
+  
+  public init(
+    _ title: String,
+    id: DynamicElementIdentifier = .uuid(),
+    action: DynamicElementActionIdentifier
+  ) {
+    self.init(
+      id: id,
+      action: action
+    ) {
+      DynamicText(title)
+    }
+  }
   
   public init<Label: DynamicElement>(
-    _ label: Label,
-    action: AnyHashable
+    id: DynamicElementIdentifier = .uuid(),
+    action: DynamicElementActionIdentifier,
+    label: () -> Label
   ) {
-    self.label = label.node
+    self.id = id
+    self.label = label().node
     self.action = action
   }
   

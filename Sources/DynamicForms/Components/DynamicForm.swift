@@ -8,7 +8,7 @@ public struct DynamicForm: Equatable {
     self.node = node
   }
   
-  init(content: () -> DynamicText) {
+  public init(content: () -> DynamicText) {
     self.init(content().node.primitive!)
   }
   

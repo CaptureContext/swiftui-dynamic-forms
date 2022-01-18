@@ -54,9 +54,19 @@ import SwiftUI
 ///   (interpolated `SwiftUI.Image`s, for example). ``DynamicText`` also uses reflection to determine
 ///   `LocalizedStringKey` equatability, so be mindful of edge cases.
 public struct DynamicText: Equatable, Hashable, Identifiable {
-  public var id: AnyHashable { self }
-  fileprivate var modifiers: [Modifier] = []
+  public var id: DynamicElementIdentifier
+  
   fileprivate let storage: Storage
+  fileprivate var modifiers: [Modifier] = []
+  
+  fileprivate init(
+    storage: Storage,
+    modifiers: [Modifier] = []
+  ) {
+    self.storage = storage
+    self.modifiers = modifiers
+    self.id = .uuid()
+  }
   
   fileprivate enum Modifier: Equatable, Hashable {
     case accessibilityHeading(AccessibilityHeadingLevel)
@@ -129,7 +139,7 @@ public struct DynamicText: Equatable, Hashable, Identifiable {
 // MARK: - API
 extension DynamicText {
   public init(verbatim content: String) {
-    self.storage = .verbatim(content)
+    self.init(storage: .verbatim(content))
   }
   
   @_disfavoredOverload
@@ -143,7 +153,7 @@ extension DynamicText {
     bundle: Bundle? = nil,
     comment: StaticString? = nil
   ) {
-    self.storage = .localized(key, tableName: tableName, bundle: bundle, comment: comment)
+    self.init(storage: .localized(key, tableName: tableName, bundle: bundle, comment: comment))
   }
   
   public static func + (lhs: Self, rhs: Self) -> Self {

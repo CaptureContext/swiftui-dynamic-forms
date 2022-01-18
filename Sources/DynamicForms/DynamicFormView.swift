@@ -84,11 +84,13 @@ extension DynamicFormView {
     @ViewBuilder
     var body: some View {
       switch node {
-      case let .text(state):
-        state
-        
       case let .button(state):
-        Button(action: { client.send(state.action) }) {
+        Button {
+          client.send(.init(
+            id: state.id,
+            action: state.action
+          ))
+        } label: {
           ElementNodeView(
             Binding(
               get: { node?.button?.label },
@@ -97,6 +99,9 @@ extension DynamicFormView {
             client: client
           )
         }
+        
+      case let .spacer(state):
+        Spacer(minLength: state.minLength.map { CGFloat($0) })
         
       case let .stack(state):
         switch state.axis {
@@ -123,7 +128,25 @@ extension DynamicFormView {
           }
         }
         
-      default:
+      case let .text(state):
+        state
+        
+      case let .textField(state):
+        TextField(
+          state.key ?? "",
+          text: Binding(
+            get: { node?.textField?.value ?? "" },
+            set: { node?.textField?.value = $0 }
+          )
+        )
+        
+      case .textView:
+        TextEditor(text: Binding(
+          get: { node?.textField?.value ?? "" },
+          set: { node?.textField?.value = $0 }
+        ))
+        
+      case .none:
         EmptyView()
       }
     }

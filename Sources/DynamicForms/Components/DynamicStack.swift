@@ -19,7 +19,7 @@ public struct DynamicStack: Equatable, DynamicElement, Identifiable {
   
   internal init(
     _ axis: Axis,
-    id: UUID = .init(),
+    id: DynamicElementIdentifier = .uuid(),
     storage: DynamicElementNode
   ) {
     self.id = id
@@ -27,7 +27,7 @@ public struct DynamicStack: Equatable, DynamicElement, Identifiable {
     self.storage = storage
   }
   
-  public let id: UUID
+  public let id: DynamicElementIdentifier
   public var axis: Axis
   private var storage: DynamicElementNode
   

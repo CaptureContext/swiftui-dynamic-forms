@@ -32,12 +32,12 @@ final class DynamicFormsTests: XCTestCase {
     let expected = DynamicElementNode.primitive(.stack(
       DynamicStack(
         .vertical,
-        id: actual.primitive?.stack?.id ?? UUID(),
+        id: actual.primitive?.stack?.id ?? .uuid(),
         storage: .group([
           .primitive(.stack(
             DynamicStack(
               .horizontal,
-              id: actual.primitive?.stack?.children[0].primitive?.stack?.id ?? UUID(),
+              id: actual.primitive?.stack?.children[0].primitive?.stack?.id ?? .uuid(),
               storage: .group([
                 .primitive(.text(DynamicText("Hello"))),
                 .primitive(.text(DynamicText("World")))
@@ -47,7 +47,7 @@ final class DynamicFormsTests: XCTestCase {
           .primitive(.stack(
             DynamicStack(
               .horizontal,
-              id: actual.primitive?.stack?.children[1].primitive?.stack?.id ?? UUID(),
+              id: actual.primitive?.stack?.children[1].primitive?.stack?.id ?? .uuid(),
               storage: .group([
                 .primitive(.text(DynamicText("Hello"))),
                 .primitive(.text(DynamicText("World")))
