@@ -14,6 +14,8 @@
   - [x] `DynamicTextField`
   - [x] `DynamicTextView`
   - [x] `DynamicSpacer`
+  - [ ] `DynamicConfirmationDialog`
+  - [ ] `DynamicAlert`
   - [ ] `DynamicDragField`
   - [ ] `DynamicDropField`
 - **Features**
