@@ -14,6 +14,7 @@
   - [x] `DynamicTextField`
   - [x] `DynamicTextView`
   - [x] `DynamicSpacer`
+  - [ ] `DynamicImage`
   - [ ] `DynamicConfirmationDialog`
   - [ ] `DynamicAlert`
   - [ ] `DynamicDragField`

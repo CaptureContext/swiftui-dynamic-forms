@@ -142,8 +142,8 @@ extension DynamicFormView {
         
       case .textView:
         TextEditor(text: Binding(
-          get: { node?.textField?.value ?? "" },
-          set: { node?.textField?.value = $0 }
+          get: { node?.textView?.value ?? "" },
+          set: { node?.textView?.value = $0 }
         ))
         
       case .none:
