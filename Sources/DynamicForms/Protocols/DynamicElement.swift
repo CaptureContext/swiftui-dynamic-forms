@@ -16,7 +16,7 @@ extension DynamicElement {
 extension Never: DynamicElement {
   public var content: Never { fatalError() }
   public var node: DynamicElementNode {
-    get { .group([]) }
+    .group([])
   }
 }
 
