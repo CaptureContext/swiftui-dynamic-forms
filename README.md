@@ -15,10 +15,14 @@
   - [x] `DynamicTextView`
   - [x] `DynamicSpacer`
   - [ ] `DynamicImage`
+  - [ ] `DynamicToggle`
+  - [ ] `DynamicImage`
   - [ ] `DynamicConfirmationDialog`
   - [ ] `DynamicAlert`
   - [ ] `DynamicDragField`
   - [ ] `DynamicDropField`
+  - [ ] `DynamicLink`
+  - [ ] `DynamicNavigationView`
 - **Features**
   - [ ] Codable support
   - [ ] Custom modificators
