@@ -2,31 +2,29 @@ import DynamicForms
 import SwiftUI
 
 extension DynamicViews {
-  public struct Button: View {
+  public struct Toggle: View {
     public init(
-      _ element: Binding<DynamicButton?>,
-      client: DynamicFormClient = .shared
+      _ element: Binding<DynamicToggle?>,
+      client: DynamicFormClient
     ) {
       self._element = element
       self.client = client
     }
     
     @Binding
-    var element: DynamicButton?
-    
+    var element: DynamicToggle?
     let client: DynamicFormClient
     
     public var body: some View {
-      element.map { element in
-        SwiftUI.Button {
-          client.send(.init(id: element.id, action: element.action))
-        } label: {
+      SwiftUI.Toggle.init(
+        isOn: $element.optionalRootMap(\.value).or(false),
+        label: {
           ElementNode(
             $element.optionalRootMap(\.label),
             client: client
           )
         }
-      }
+      )
     }
   }
 }

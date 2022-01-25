@@ -15,7 +15,7 @@
   - [x] `DynamicTextView`
   - [x] `DynamicSpacer`
   - [ ] `DynamicImage`
-  - [ ] `DynamicToggle`
+  - [x] `DynamicToggle`
   - [ ] `DynamicImage`
   - [ ] `DynamicConfirmationDialog`
   - [ ] `DynamicAlert`
@@ -25,12 +25,13 @@
   - [ ] `DynamicNavigationView`
 - **Features**
   - [ ] Codable support
+  - [ ] Remove SwiftUI Dependency
+    - Create SwiftUI-independent DynamicText modifiers for `Color` and `Font`
   - [ ] Custom modificators
 - **To-think-about**
   - API improvements for state management
   - API improvements for action handling
   - Helper for derived (optional/collection) `Binding`s
-  - Separate `DynamicForms` target into `DynamicForms` and `DynamicFormsUI` targets
 
 
 

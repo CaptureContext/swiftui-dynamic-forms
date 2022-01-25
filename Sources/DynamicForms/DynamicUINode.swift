@@ -8,6 +8,7 @@ public indirect enum DynamicUINode: Equatable, Identifiable {
   case text(DynamicText)
   case textField(DynamicTextField)
   case textView(DynamicTextView)
+  case toggle(DynamicToggle)
 }
 
 extension DynamicUINode {
@@ -19,6 +20,7 @@ extension DynamicUINode {
     case let .text(state): return state.id
     case let .textField(state): return state.id
     case let .textView(state): return state.id
+    case let .toggle(state): return state.id
     }
   }
   
@@ -50,5 +52,10 @@ extension DynamicUINode {
   public var textView: DynamicTextView? {
     get { (/Self.textView).extract(from: self) }
     set { (/Self.textView).ifCaseLetEmbed(newValue, in: &self) }
+  }
+  
+  public var toggle: DynamicToggle? {
+    get { (/Self.toggle).extract(from: self) }
+    set { (/Self.toggle).ifCaseLetEmbed(newValue, in: &self) }
   }
 }

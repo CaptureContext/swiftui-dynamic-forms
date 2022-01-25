@@ -47,6 +47,12 @@ extension DynamicViews {
           $node.optionalMap(\.textView)
         )
         
+      case .toggle:
+        Toggle(
+          $node.optionalMap(\.toggle),
+          client: client
+        )
+        
       case .none:
         EmptyView()
       }
