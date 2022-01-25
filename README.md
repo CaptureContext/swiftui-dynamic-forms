@@ -27,7 +27,7 @@
   - [ ] Codable support
   - [ ] Remove SwiftUI Dependency
     - Create SwiftUI-independent DynamicText modifiers for `Color` and `Font`
-  - [ ] Custom modificators
+  - [ ] Custom modifiers
 - **To-think-about**
   - API improvements for state management
   - API improvements for action handling
