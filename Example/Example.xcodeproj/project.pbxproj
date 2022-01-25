@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E1AE5A5C2796ED6A00EA911E /* DynamicForms in Frameworks */ = {isa = PBXBuildFile; productRef = E1AE5A5B2796ED6A00EA911E /* DynamicForms */; };
-		E1AE5A5E2796EEDD00EA911E /* DynamicForms in Frameworks */ = {isa = PBXBuildFile; productRef = E1AE5A5D2796EEDD00EA911E /* DynamicForms */; };
+		E196B8E127A002F100E03F7F /* DynamicFormsUI in Frameworks */ = {isa = PBXBuildFile; productRef = E196B8E027A002F100E03F7F /* DynamicFormsUI */; };
 		E1CF381C279347B400315374 /* ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CF37F4279347B300315374 /* ExampleApp.swift */; };
 		E1CF381D279347B400315374 /* ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CF37F4279347B300315374 /* ExampleApp.swift */; };
 		E1CF381E279347B400315374 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CF37F5279347B300315374 /* ContentView.swift */; };
 		E1CF381F279347B400315374 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CF37F5279347B300315374 /* ContentView.swift */; };
 		E1CF3820279347B400315374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CF37F6279347B400315374 /* Assets.xcassets */; };
 		E1CF3821279347B400315374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CF37F6279347B400315374 /* Assets.xcassets */; };
+		E1F24A5D27A006FB007C4DF3 /* DynamicFormsUI in Frameworks */ = {isa = PBXBuildFile; productRef = E1F24A5C27A006FB007C4DF3 /* DynamicFormsUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1AE5A5C2796ED6A00EA911E /* DynamicForms in Frameworks */,
+				E1F24A5D27A006FB007C4DF3 /* DynamicFormsUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1AE5A5E2796EEDD00EA911E /* DynamicForms in Frameworks */,
+				E196B8E127A002F100E03F7F /* DynamicFormsUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +142,7 @@
 			);
 			name = "Example (iOS)";
 			packageProductDependencies = (
-				E1AE5A5B2796ED6A00EA911E /* DynamicForms */,
+				E1F24A5C27A006FB007C4DF3 /* DynamicFormsUI */,
 			);
 			productName = "Example (iOS)";
 			productReference = E1CF37FB279347B400315374 /* Example.app */;
@@ -162,7 +162,7 @@
 			);
 			name = "Example (macOS)";
 			packageProductDependencies = (
-				E1AE5A5D2796EEDD00EA911E /* DynamicForms */,
+				E196B8E027A002F100E03F7F /* DynamicFormsUI */,
 			);
 			productName = "Example (macOS)";
 			productReference = E1CF3801279347B400315374 /* Example.app */;
@@ -681,13 +681,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E1AE5A5B2796ED6A00EA911E /* DynamicForms */ = {
+		E196B8E027A002F100E03F7F /* DynamicFormsUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = DynamicForms;
+			productName = DynamicFormsUI;
 		};
-		E1AE5A5D2796EEDD00EA911E /* DynamicForms */ = {
+		E1F24A5C27A006FB007C4DF3 /* DynamicFormsUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = DynamicForms;
+			productName = DynamicFormsUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

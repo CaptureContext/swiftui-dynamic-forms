@@ -3,7 +3,7 @@ import Foundation
 public struct DynamicSpacer: Equatable, DynamicElement, Identifiable {
   public init(
     id: DynamicElementIdentifier = .uuid(),
-    minLength: Double?
+    minLength: Double? = nil
   ) {
     self.id = id
     self.minLength = minLength

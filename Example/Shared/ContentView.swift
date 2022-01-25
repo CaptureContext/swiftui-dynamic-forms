@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import DynamicForms
+import DynamicFormsUI
 
 struct ContentView: View {
   @State
@@ -19,14 +19,12 @@ struct ContentView: View {
         DynamicText("Initial")
       }
       DynamicStack(.horizontal) {
-        DynamicButton(
-          DynamicText("OK"),
-          action: "content.ok"
-        )
-        DynamicButton(
-          DynamicText("Cancel"),
-          action: "content.cancel"
-        )
+        DynamicButton(action: "content.ok") {
+          DynamicText("OK")
+        }
+        DynamicButton(action: "content.cancel") {
+          DynamicText("Cancel")
+        }
       }
     }
   }
@@ -36,7 +34,7 @@ struct ContentView: View {
   
   var body: some View {
     ZStack {
-      DynamicFormView($form)
+      DynamicViews.Form($form)
       VStack {
         Spacer()
         ScrollView(.vertical, showsIndicators: false) {

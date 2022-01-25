@@ -13,6 +13,10 @@ let package = Package(
       name: "DynamicForms",
       targets: ["DynamicForms"]
     ),
+    .library(
+      name: "DynamicFormsUI",
+      targets: ["DynamicFormsUI"]
+    ),
   ],
   dependencies: [
     .package(
@@ -56,6 +60,12 @@ let package = Package(
           name: "GenericColor",
           package: "swift-generic-color"
         )
+      ]
+    ),
+    .target(
+      name: "DynamicFormsUI",
+      dependencies: [
+        .target(name: "DynamicForms")
       ]
     ),
     .testTarget(

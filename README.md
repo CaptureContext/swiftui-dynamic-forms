@@ -29,7 +29,6 @@
 - **To-think-about**
   - API improvements for state management
   - API improvements for action handling
-  - API for custom views
   - Helper for derived (optional/collection) `Binding`s
   - Separate `DynamicForms` target into `DynamicForms` and `DynamicFormsUI` targets
 
@@ -138,7 +137,7 @@ If you use SwiftPM for your project, you can add StandardClients to your package
 .package(
   name: "swiftui-dynamic-forms",
   url: "https://github.com/capturecontext/swiftui-dynamic-forms.git", 
-  .branch("0.0.1")
+  .branch("0.1.0")
 )
 ```
 
