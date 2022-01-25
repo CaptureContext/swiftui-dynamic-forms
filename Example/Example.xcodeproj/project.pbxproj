@@ -17,23 +17,6 @@
 		E1F24A5D27A006FB007C4DF3 /* DynamicFormsUI in Frameworks */ = {isa = PBXBuildFile; productRef = E1F24A5C27A006FB007C4DF3 /* DynamicFormsUI */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E1CF3809279347B400315374 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CF37EF279347B300315374 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E1CF37FA279347B400315374;
-			remoteInfo = "Example (iOS)";
-		};
-		E1CF3815279347B400315374 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CF37EF279347B300315374 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E1CF3800279347B400315374;
-			remoteInfo = "Example (macOS)";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		E1CF37F4279347B300315374 /* ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleApp.swift; sourceTree = "<group>"; };
 		E1CF37F5279347B300315374 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,8 +24,6 @@
 		E1CF37FB279347B400315374 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CF3801279347B400315374 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CF3803279347B400315374 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		E1CF3808279347B400315374 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1CF3814279347B400315374 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,20 +40,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E196B8E127A002F100E03F7F /* DynamicFormsUI in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1CF3805279347B400315374 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1CF3811279347B400315374 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,8 +78,6 @@
 			children = (
 				E1CF37FB279347B400315374 /* Example.app */,
 				E1CF3801279347B400315374 /* Example.app */,
-				E1CF3808279347B400315374 /* Tests iOS.xctest */,
-				E1CF3814279347B400315374 /* Tests macOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,42 +133,6 @@
 			productReference = E1CF3801279347B400315374 /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E1CF3807279347B400315374 /* Tests iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E1CF382A279347B400315374 /* Build configuration list for PBXNativeTarget "Tests iOS" */;
-			buildPhases = (
-				E1CF3804279347B400315374 /* Sources */,
-				E1CF3805279347B400315374 /* Frameworks */,
-				E1CF3806279347B400315374 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E1CF380A279347B400315374 /* PBXTargetDependency */,
-			);
-			name = "Tests iOS";
-			productName = "Tests iOS";
-			productReference = E1CF3808279347B400315374 /* Tests iOS.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		E1CF3813279347B400315374 /* Tests macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E1CF382D279347B400315374 /* Build configuration list for PBXNativeTarget "Tests macOS" */;
-			buildPhases = (
-				E1CF3810279347B400315374 /* Sources */,
-				E1CF3811279347B400315374 /* Frameworks */,
-				E1CF3812279347B400315374 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E1CF3816279347B400315374 /* PBXTargetDependency */,
-			);
-			name = "Tests macOS";
-			productName = "Tests macOS";
-			productReference = E1CF3814279347B400315374 /* Tests macOS.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -219,14 +148,6 @@
 					};
 					E1CF3800279347B400315374 = {
 						CreatedOnToolsVersion = 13.2.1;
-					};
-					E1CF3807279347B400315374 = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = E1CF37FA279347B400315374;
-					};
-					E1CF3813279347B400315374 = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = E1CF3800279347B400315374;
 					};
 				};
 			};
@@ -245,8 +166,6 @@
 			targets = (
 				E1CF37FA279347B400315374 /* Example (iOS) */,
 				E1CF3800279347B400315374 /* Example (macOS) */,
-				E1CF3807279347B400315374 /* Tests iOS */,
-				E1CF3813279347B400315374 /* Tests macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -265,20 +184,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1CF3821279347B400315374 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1CF3806279347B400315374 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1CF3812279347B400315374 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,34 +208,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E1CF3804279347B400315374 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1CF3810279347B400315374 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E1CF380A279347B400315374 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E1CF37FA279347B400315374 /* Example (iOS) */;
-			targetProxy = E1CF3809279347B400315374 /* PBXContainerItemProxy */;
-		};
-		E1CF3816279347B400315374 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E1CF3800279347B400315374 /* Example (macOS) */;
-			targetProxy = E1CF3815279347B400315374 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E1CF3822279347B400315374 /* Debug */ = {
@@ -555,81 +433,6 @@
 			};
 			name = Release;
 		};
-		E1CF382B279347B400315374 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "dev.capturecontext.Tests-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Example (iOS)";
-			};
-			name = Debug;
-		};
-		E1CF382C279347B400315374 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "dev.capturecontext.Tests-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Example (iOS)";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		E1CF382E279347B400315374 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "dev.capturecontext.Tests-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "Example (macOS)";
-			};
-			name = Debug;
-		};
-		E1CF382F279347B400315374 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "dev.capturecontext.Tests-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "Example (macOS)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -656,24 +459,6 @@
 			buildConfigurations = (
 				E1CF3828279347B400315374 /* Debug */,
 				E1CF3829279347B400315374 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E1CF382A279347B400315374 /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E1CF382B279347B400315374 /* Debug */,
-				E1CF382C279347B400315374 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E1CF382D279347B400315374 /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E1CF382E279347B400315374 /* Debug */,
-				E1CF382F279347B400315374 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

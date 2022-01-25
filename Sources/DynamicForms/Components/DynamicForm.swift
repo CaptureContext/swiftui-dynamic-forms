@@ -2,33 +2,25 @@ import Foundation
 
 @dynamicMemberLookup
 public struct DynamicForm: Equatable {
-  public var node: DynamicUINode
+  public var content: DynamicElementNode.Primitive
+  
+  
+  public init<Content: _PrimitiveDynamicElement>(content: () -> Content) {
+    self.init(content().__node)
+  }
   
   public init(_ node: DynamicUINode) {
-    self.node = node
+    self.init(.init(node))
   }
   
-  public init(content: () -> DynamicText) {
-    self.init(content().node.primitive!)
+  public init(_ content: DynamicElementNode.Primitive) {
+    self.content = content
   }
-  
-//  init(content: () -> DynamicTextInput) {
-//    self.init(content().__renderDynamicNodesStorage().first!)
-//  }
-
-  public init(content: () -> DynamicButton) {
-    self.init(content().node.primitive!)
-  }
-  
-  public init(content: () -> DynamicStack) {
-    self.init(content().node.primitive!)
-  }
-  
   public subscript<Value>(
     dynamicMember keyPath: WritableKeyPath<DynamicUINode, Value>
   ) -> Value {
-    set { node[keyPath: keyPath] = newValue }
-    get { node[keyPath: keyPath] }
+    set { content.node[keyPath: keyPath] = newValue }
+    get { content.node[keyPath: keyPath] }
   }
 }
 

@@ -1,4 +1,4 @@
-public struct DynamicButton: DynamicElement, Identifiable {
+public struct DynamicButton: _PrimitiveDynamicElement {
   public var id: DynamicElementIdentifier
   public var label: DynamicElementNode
   public var action: DynamicElementActionIdentifier
@@ -26,9 +26,7 @@ public struct DynamicButton: DynamicElement, Identifiable {
     self.action = action
   }
   
-  public var content: Never { fatalError() }
-  
-  public var node: DynamicElementNode {
-    .primitive(.button(self))
+  public var __node: DynamicElementNode.Primitive {
+    .init(.button(self))
   }
 }

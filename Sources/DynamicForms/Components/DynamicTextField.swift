@@ -1,4 +1,4 @@
-public struct DynamicTextField: Equatable, DynamicElement {
+public struct DynamicTextField: _PrimitiveDynamicElement {
   public init(
     id: DynamicElementIdentifier = .uuid(),
     key: String? = nil,
@@ -13,6 +13,5 @@ public struct DynamicTextField: Equatable, DynamicElement {
   public var key: String?
   public var value: String
   
-  public var content: Never { fatalError() }
-  public var node: DynamicElementNode { .primitive(.textField(self))}
+  public var __node: DynamicElementNode.Primitive { .init(.textField(self)) }
 }

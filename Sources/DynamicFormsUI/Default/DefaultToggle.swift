@@ -20,7 +20,7 @@ extension DynamicViews {
         isOn: $element.optionalRootMap(\.value).or(false),
         label: {
           ElementNode(
-            $element.optionalRootMap(\.label),
+            $element.optionalMap(\.label),
             client: client
           )
         }

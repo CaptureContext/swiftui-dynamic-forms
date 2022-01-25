@@ -25,7 +25,9 @@ extension DynamicViews {
             $element.optionalRootMap(\.label),
             client: client
           )
+            .contentShape(Rectangle())
         }
+        .buttonStyle(PlainButtonStyle())
       }
     }
   }

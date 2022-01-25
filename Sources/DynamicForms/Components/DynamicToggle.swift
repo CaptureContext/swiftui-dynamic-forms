@@ -1,7 +1,7 @@
-public struct DynamicToggle: Equatable, DynamicElement {
+public struct DynamicToggle: Equatable, _PrimitiveDynamicElement {
   public var id: DynamicElementIdentifier
   public var value: Bool
-  public var label: DynamicElementNode
+  public var label: DynamicElementNode?
   
   public init(
     _ title: String,
@@ -16,6 +16,15 @@ public struct DynamicToggle: Equatable, DynamicElement {
     }
   }
   
+  public init(
+    id: DynamicElementIdentifier = .uuid(),
+    value: Bool = false
+  ) {
+    self.id = id
+    self.value = value
+    self.label = nil
+  }
+  
   public init<Label: DynamicElement>(
     id: DynamicElementIdentifier = .uuid(),
     value: Bool = false,
@@ -26,6 +35,7 @@ public struct DynamicToggle: Equatable, DynamicElement {
     self.label = label().node
   }
   
-  public var content: Never { fatalError() }
-  public var node: DynamicElementNode { .primitive(.toggle(self))}
+  public var __node: DynamicElementNode.Primitive {
+    .init(.toggle(self))
+  }
 }

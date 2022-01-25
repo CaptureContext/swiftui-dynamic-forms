@@ -59,3 +59,31 @@ extension DynamicUINode {
     set { (/Self.toggle).ifCaseLetEmbed(newValue, in: &self) }
   }
 }
+
+
+extension DynamicUINode {
+  public subscript(id identifier: DynamicElementIdentifier) -> DynamicUINode? {
+    get {
+      guard id != identifier else { return self }
+      guard let stack = stack else { return nil }
+      for child in stack.children {
+        if let node = child.primitive?.node[id: identifier] {
+          return node
+        }
+      }
+      return nil
+    }
+    set {
+      guard let value = newValue else { return }
+      guard id != identifier else {
+        self = value
+        return
+      }
+      guard var stack = stack else { return }
+      for index in stack.children.indices {
+        stack.children[index].primitive?.node[id: identifier] = value
+      }
+      self = .stack(stack)
+    }
+  }
+}

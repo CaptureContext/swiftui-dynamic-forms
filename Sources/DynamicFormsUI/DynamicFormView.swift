@@ -19,7 +19,7 @@ public struct DynamicFormView<
   
   public var body: some View {
     PrimitiveNode(
-      $form.node.optional(),
+      $form.content.node.optional(),
       client: client
     )
   }

@@ -5,7 +5,7 @@ public struct _DynamicTupleElement: DynamicElement {
   public var elements: [AnyDynamicElement]
   
   public var node: DynamicElementNode {
-    .group(elements.map(\.node))
+    .group(.init(elements.map(\.node)))
   }
   
   public init<

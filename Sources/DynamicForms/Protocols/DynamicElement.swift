@@ -13,16 +13,25 @@ extension DynamicElement {
   }
 }
 
+public protocol _PrimitiveDynamicElement: DynamicElement where Content == Never {
+  var __node: DynamicElementNode.Primitive { get }
+}
+
+extension _PrimitiveDynamicElement {
+  public var content: Content { fatalError() }
+  public var node: DynamicElementNode { .primitive(__node) }
+}
+
 extension Never: DynamicElement {
   public var content: Never { fatalError() }
   public var node: DynamicElementNode {
-    .group([])
+    .group(.init())
   }
 }
 
 extension Optional: DynamicElement where Wrapped: DynamicElement {
   public var content: Never { fatalError() }
   public var node: DynamicElementNode {
-    self.map(\.node) ?? .group([])
+    self.map(\.node) ?? .group(.init())
   }
 }

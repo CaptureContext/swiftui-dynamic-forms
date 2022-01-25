@@ -1,7 +1,7 @@
 import CasePaths
 import Foundation
 
-public struct DynamicStack: Equatable, DynamicElement, Identifiable {
+public struct DynamicStack: _PrimitiveDynamicElement {
   public enum Axis: Equatable {
     case vertical
     case horizontal
@@ -31,14 +31,10 @@ public struct DynamicStack: Equatable, DynamicElement, Identifiable {
   public var axis: Axis
   private var storage: DynamicElementNode
   
-  public var content: Never { fatalError() }
-  
-  public var node: DynamicElementNode {
-    .primitive(.stack(self))
-  }
+  public var __node: DynamicElementNode.Primitive { .init(.stack(self)) }
   
   public var children: [DynamicElementNode] {
-    get { storage.group ?? [] }
-    set { storage = .group(newValue) }
+    get { storage.group?.nodes ?? [] }
+    set { storage.group?.nodes = newValue }
   }
 }

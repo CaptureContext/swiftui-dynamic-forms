@@ -16,15 +16,27 @@ struct ContentView: View {
       DynamicText("Description")
       DynamicStack(.horizontal) {
         DynamicText("State: ")
-        DynamicText("Initial")
+        DynamicText("Initial", id: "text.state")
       }
+      .padding()
       DynamicStack(.horizontal) {
         DynamicButton(action: "content.ok") {
           DynamicText("OK")
+            .padding(.vertical, 6)
+            .padding(.horizontal, 24)
         }
+        .foregroundColor(.hex("#000000")!)
+        .backgroundColor(.hex("#00FF00")!)
+        .cornerRadius(5, style: .continouos)
         DynamicButton(action: "content.cancel") {
           DynamicText("Cancel")
+            .padding(.vertical, 6)
+            .padding(.horizontal)
         }
+        .foregroundColor(.hex("#ffffff")!)
+        .backgroundColor(.hex("#ff0000")!)
+        .cornerRadius(5, style: .continouos)
+        DynamicToggle(id: "toggle.state", value: false)
       }
     }
   }
@@ -54,13 +66,15 @@ struct ContentView: View {
     .onReceive(
       DynamicFormClient.shared.publisher(for: "content.ok")
     ) {
-      form.node.stack?.children[2].primitive?.stack?.children[1].primitive?.text = DynamicText("ok").bold()
+      form.content.node[id: "text.state"]?.text = DynamicText("ok", id: "text.state").bold()
+      form.content.node[id: "toggle.state"]?.toggle?.value = true
       printMessage("OK")
     }
     .onReceive(
       DynamicFormClient.shared.publisher(for: "content.cancel")
     ) {
-      form.node.stack?.children[2].primitive?.stack?.children[1].primitive?.text = DynamicText("cancel").bold()
+      form.content.node[id: "text.state"]?.text = DynamicText("cancel", id: "text.state").bold()
+      form.content.node[id: "toggle.state"]?.toggle?.value = false
       printMessage("CANCEL")
     }
   }

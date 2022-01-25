@@ -1,6 +1,6 @@
 import Foundation
 
-public struct DynamicSpacer: Equatable, DynamicElement, Identifiable {
+public struct DynamicSpacer: _PrimitiveDynamicElement {
   public init(
     id: DynamicElementIdentifier = .uuid(),
     minLength: Double? = nil
@@ -11,6 +11,8 @@ public struct DynamicSpacer: Equatable, DynamicElement, Identifiable {
   
   public var id: DynamicElementIdentifier
   public var minLength: Double?
-  public var content: Never { fatalError() }
-  public var node: DynamicElementNode { .primitive(.spacer(self)) }
+  
+  public var __node: DynamicElementNode.Primitive {
+    .init(.spacer(self))
+  }
 }

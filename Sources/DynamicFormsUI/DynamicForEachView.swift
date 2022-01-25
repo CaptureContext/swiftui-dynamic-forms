@@ -21,13 +21,14 @@ public struct DynamicForEachView<
     SwiftUI.ForEach($nodes) { node in
       switch node.wrappedValue {
       case .primitive:
-        PrimitiveNode(node.primitive, client: client)
+        PrimitiveNode(node.primitive.optionalRootMap(\.node), client: client)
+          .modified(using: node.wrappedValue.modifiers)
         
       case .group:
         DynamicForEachView(
-          node.optionalValueMap(\.group).or([]),
+          node.group.optionalRootMap(\.nodes).or([]),
           client: client
-        )
+        ).modified(using: node.wrappedValue.modifiers)
       }
     }
   }

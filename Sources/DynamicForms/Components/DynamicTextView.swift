@@ -1,4 +1,4 @@
-public struct DynamicTextView: Equatable, DynamicElement {
+public struct DynamicTextView: _PrimitiveDynamicElement {
   public init(
     id: DynamicElementIdentifier = .uuid(),
     value: String
@@ -10,6 +10,5 @@ public struct DynamicTextView: Equatable, DynamicElement {
   public var id: DynamicElementIdentifier
   public var value: String
   
-  public var content: Never { fatalError() }
-  public var node: DynamicElementNode { .primitive(.textView(self))}
+  public var __node: DynamicElementNode.Primitive { .init(.textView(self)) }
 }
