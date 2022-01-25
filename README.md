@@ -138,7 +138,7 @@ If you use SwiftPM for your project, you can add StandardClients to your package
 .package(
   name: "swiftui-dynamic-forms",
   url: "https://github.com/capturecontext/swiftui-dynamic-forms.git", 
-  .branch("main")
+  .branch("0.0.1")
 )
 ```
 
