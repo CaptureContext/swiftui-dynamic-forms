@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.7
 
 import PackageDescription
 
@@ -20,24 +20,20 @@ let package = Package(
   ],
   dependencies: [
     .package(
-      name: "swift-case-paths",
       url: "https://github.com/pointfreeco/swift-case-paths.git",
-      .upToNextMinor(from: "0.8.0")
+      .upToNextMinor(from: "0.11.0")
     ),
     .package(
-      name: "swift-custom-dump",
       url: "https://github.com/pointfreeco/swift-custom-dump.git",
-      .upToNextMinor(from: "0.3.0")
+      .upToNextMinor(from: "0.6.1")
     ),
     .package(
-      name: "swift-prelude",
       url: "https://github.com/capturecontext/swift-prelude.git",
-      .branch("develop")
+      branch: "develop"
     ),
     .package(
-      name: "swift-generic-color",
       url: "https://github.com/capturecontext/swift-generic-color.git",
-      .branch("main")
+      branch: "main"
     )
   ],
   targets: [
