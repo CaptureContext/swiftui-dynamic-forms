@@ -1,0 +1,148 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.3.3 effective-5.10 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -swift-version 5 -Onone -module-name DynamicFormsUI
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
+@_exported import DynamicForms
+import Swift
+import SwiftUI
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+extension DynamicFormsUI.DynamicViews {
+  @_Concurrency.MainActor @preconcurrency public struct Button : SwiftUICore.View {
+    @_Concurrency.MainActor @preconcurrency public init(_ element: SwiftUICore.Binding<DynamicForms.DynamicButton?>, client: DynamicForms.DynamicFormClient = .shared)
+    @_Concurrency.MainActor @preconcurrency private var _element: SwiftUICore.Binding<DynamicForms.DynamicButton?>
+    @_Concurrency.MainActor @preconcurrency internal let client: DynamicForms.DynamicFormClient
+    @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+      get
+    }
+    public typealias Body = @_opaqueReturnTypeOf("$s14DynamicFormsUI0A5ViewsO6ButtonV4bodyQrvp", 0) __
+  }
+}
+extension DynamicFormsUI.DynamicViews {
+  public typealias Form = DynamicFormsUI.DynamicFormView<DynamicFormsUI.DynamicViews.PrimitiveNode>
+}
+extension DynamicFormsUI.DynamicViews {
+  @_Concurrency.MainActor @preconcurrency public struct PrimitiveNode : DynamicFormsUI.PrimitiveDynamicNodeView {
+    @_Concurrency.MainActor @preconcurrency public init(_ node: SwiftUICore.Binding<DynamicForms.DynamicUINode?>, client: DynamicForms.DynamicFormClient)
+    @_Concurrency.MainActor @preconcurrency private var _node: SwiftUICore.Binding<DynamicForms.DynamicUINode?>
+    @_Concurrency.MainActor @preconcurrency internal var client: DynamicForms.DynamicFormClient
+    @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+      get
+    }
+    public typealias Body = @_opaqueReturnTypeOf("$s14DynamicFormsUI0A5ViewsO13PrimitiveNodeV4bodyQrvp", 0) __
+  }
+}
+extension DynamicFormsUI.DynamicViews {
+  @_Concurrency.MainActor @preconcurrency public struct Spacer : SwiftUICore.View {
+    @_Concurrency.MainActor @preconcurrency public init(_ element: DynamicForms.DynamicSpacer?)
+    @_Concurrency.MainActor @preconcurrency internal let element: DynamicForms.DynamicSpacer?
+    @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+      get
+    }
+    public typealias Body = @_opaqueReturnTypeOf("$s14DynamicFormsUI0A5ViewsO6SpacerV4bodyQrvp", 0) __
+  }
+}
+extension DynamicFormsUI.DynamicViews {
+  @_Concurrency.MainActor @preconcurrency public struct Stack : SwiftUICore.View {
+    @_Concurrency.MainActor @preconcurrency public init(_ element: SwiftUICore.Binding<DynamicForms.DynamicStack?>, client: DynamicForms.DynamicFormClient)
+    @_Concurrency.MainActor @preconcurrency private var _element: SwiftUICore.Binding<DynamicForms.DynamicStack?>
+    @_Concurrency.MainActor @preconcurrency internal let client: DynamicForms.DynamicFormClient
+    @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+      get
+    }
+    public typealias Body = @_opaqueReturnTypeOf("$s14DynamicFormsUI0A5ViewsO5StackV4bodyQrvp", 0) __
+  }
+}
+extension DynamicFormsUI.DynamicViews {
+  @_Concurrency.MainActor @preconcurrency public struct Text : SwiftUICore.View {
+    @_Concurrency.MainActor @preconcurrency public init(_ element: DynamicForms.DynamicText)
+    @_Concurrency.MainActor @preconcurrency internal let element: DynamicForms.DynamicText
+    @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+      get
+    }
+    public typealias Body = @_opaqueReturnTypeOf("$s14DynamicFormsUI0A5ViewsO4TextV4bodyQrvp", 0) __
+  }
+}
+extension DynamicFormsUI.DynamicViews {
+  @_Concurrency.MainActor @preconcurrency public struct TextField : SwiftUICore.View {
+    @_Concurrency.MainActor @preconcurrency public init(_ element: SwiftUICore.Binding<DynamicForms.DynamicTextField?>)
+    @_Concurrency.MainActor @preconcurrency private var _element: SwiftUICore.Binding<DynamicForms.DynamicTextField?>
+    @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+      get
+    }
+    public typealias Body = @_opaqueReturnTypeOf("$s14DynamicFormsUI0A5ViewsO9TextFieldV4bodyQrvp", 0) __
+  }
+}
+extension DynamicFormsUI.DynamicViews {
+  @_Concurrency.MainActor @preconcurrency public struct TextView : SwiftUICore.View {
+    @_Concurrency.MainActor @preconcurrency public init(_ element: SwiftUICore.Binding<DynamicForms.DynamicTextView?>)
+    @_Concurrency.MainActor @preconcurrency private var _element: SwiftUICore.Binding<DynamicForms.DynamicTextView?>
+    @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+      get
+    }
+    public typealias Body = @_opaqueReturnTypeOf("$s14DynamicFormsUI0A5ViewsO8TextViewV4bodyQrvp", 0) __
+  }
+}
+extension DynamicFormsUI.DynamicViews {
+  @_Concurrency.MainActor @preconcurrency public struct Toggle : SwiftUICore.View {
+    @_Concurrency.MainActor @preconcurrency public init(_ element: SwiftUICore.Binding<DynamicForms.DynamicToggle?>, client: DynamicForms.DynamicFormClient)
+    @_Concurrency.MainActor @preconcurrency private var _element: SwiftUICore.Binding<DynamicForms.DynamicToggle?>
+    @_Concurrency.MainActor @preconcurrency internal let client: DynamicForms.DynamicFormClient
+    @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+      get
+    }
+    public typealias Body = @_opaqueReturnTypeOf("$s14DynamicFormsUI0A5ViewsO6ToggleV4bodyQrvp", 0) __
+  }
+}
+extension DynamicFormsUI.DynamicViews {
+  @_Concurrency.MainActor @preconcurrency public struct ElementNode : SwiftUICore.View {
+    @_Concurrency.MainActor @preconcurrency public init(_ node: SwiftUICore.Binding<DynamicForms.DynamicElementNode?>, client: DynamicForms.DynamicFormClient)
+    @_Concurrency.MainActor @preconcurrency private var _node: SwiftUICore.Binding<DynamicForms.DynamicElementNode?>
+    @_Concurrency.MainActor @preconcurrency internal var client: DynamicForms.DynamicFormClient
+    @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+      get
+    }
+    public typealias Body = @_opaqueReturnTypeOf("$s14DynamicFormsUI0A5ViewsO11ElementNodeV4bodyQrvp", 0) __
+  }
+}
+public enum DynamicViews {
+}
+@_Concurrency.MainActor @preconcurrency public struct DynamicForEachView<PrimitiveNode> : SwiftUICore.View where PrimitiveNode : DynamicFormsUI.PrimitiveDynamicNodeView {
+  @_Concurrency.MainActor @preconcurrency public init(_ nodes: SwiftUICore.Binding<[DynamicForms.DynamicElementNode]>, client: DynamicForms.DynamicFormClient)
+  @_Concurrency.MainActor @preconcurrency private var _nodes: SwiftUICore.Binding<[DynamicForms.DynamicElementNode]>
+  @_Concurrency.MainActor @preconcurrency internal var client: DynamicForms.DynamicFormClient
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s14DynamicFormsUI0A11ForEachViewV4bodyQrvp", 0) __<PrimitiveNode>
+}
+@_Concurrency.MainActor @preconcurrency public struct DynamicFormView<PrimitiveNode> : SwiftUICore.View where PrimitiveNode : DynamicFormsUI.PrimitiveDynamicNodeView {
+  @_Concurrency.MainActor @preconcurrency private var _form: SwiftUICore.Binding<DynamicForms.DynamicForm>
+  @_Concurrency.MainActor @preconcurrency internal var client: DynamicForms.DynamicFormClient
+  @_Concurrency.MainActor @preconcurrency public init(_ form: SwiftUICore.Binding<DynamicForms.DynamicForm>, client: DynamicForms.DynamicFormClient = .shared)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s14DynamicFormsUI0A8FormViewV4bodyQrvp", 0) __<PrimitiveNode>
+}
+extension SwiftUICore.Binding {
+  public func optional() -> SwiftUICore.Binding<Value?>
+}
+extension SwiftUICore.Text {
+  public init(_ state: DynamicForms.DynamicText)
+}
+public protocol PrimitiveDynamicNodeView : SwiftUICore.View {
+  init(_ node: SwiftUICore.Binding<DynamicForms.DynamicUINode?>, client: DynamicForms.DynamicFormClient)
+}
+extension DynamicFormsUI.DynamicViews.Button : Swift.Sendable {}
+extension DynamicFormsUI.DynamicViews.PrimitiveNode : Swift.Sendable {}
+extension DynamicFormsUI.DynamicViews.Spacer : Swift.Sendable {}
+extension DynamicFormsUI.DynamicViews.Stack : Swift.Sendable {}
+extension DynamicFormsUI.DynamicViews.Text : Swift.Sendable {}
+extension DynamicFormsUI.DynamicViews.TextField : Swift.Sendable {}
+extension DynamicFormsUI.DynamicViews.TextView : Swift.Sendable {}
+extension DynamicFormsUI.DynamicViews.Toggle : Swift.Sendable {}
+extension DynamicFormsUI.DynamicViews.ElementNode : Swift.Sendable {}
+extension DynamicFormsUI.DynamicForEachView : Swift.Sendable {}
+extension DynamicFormsUI.DynamicFormView : Swift.Sendable {}
