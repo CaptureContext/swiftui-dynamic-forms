@@ -1,0 +1,445 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.4 effective-5.10 (swiftlang-6.4.0.25.4 clang-2100.3.25.1)
+// swift-module-flags: -target arm64-apple-macosx12.0 -enable-objc-interop -language-mode 5 -Onone -module-name DynamicForms
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.4
+import CasePaths
+import Combine
+import CustomDump
+import Foundation
+import Prelude
+import Swift
+import SwiftUI
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct AnyDynamicElement : DynamicForms::DynamicElement {
+  public static func == (lhs: DynamicForms::AnyDynamicElement, rhs: DynamicForms::AnyDynamicElement) -> Swift::Bool
+  public init<T>(_ component: T) where T : DynamicForms::DynamicElement
+  public var content: Swift::Never {
+    get
+  }
+  public var _node: () -> DynamicForms::DynamicElementNode
+  public var node: DynamicForms::DynamicElementNode {
+    get
+  }
+  public typealias Content = Swift::Never
+}
+public struct DynamicButton : DynamicForms::DynamicElement, Swift::Identifiable {
+  public var id: DynamicForms::DynamicElementIdentifier
+  public var label: DynamicForms::DynamicElementNode
+  public var action: DynamicForms::DynamicElementActionIdentifier
+  public init(_ title: Swift::String, id: DynamicForms::DynamicElementIdentifier = .uuid(), action: DynamicForms::DynamicElementActionIdentifier)
+  public init<Label>(id: DynamicForms::DynamicElementIdentifier = .uuid(), action: DynamicForms::DynamicElementActionIdentifier, label: () -> Label) where Label : DynamicForms::DynamicElement
+  public var content: Swift::Never {
+    get
+  }
+  public var node: DynamicForms::DynamicElementNode {
+    get
+  }
+  public typealias Content = Swift::Never
+  public typealias ID = DynamicForms::DynamicElementIdentifier
+  @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_struct_equals(_ a: DynamicForms::DynamicButton, _ b: DynamicForms::DynamicButton) -> Swift::Bool
+}
+@dynamicMemberLookup public struct DynamicForm : Swift::Equatable {
+  public var node: DynamicForms::DynamicUINode
+  public init(_ node: DynamicForms::DynamicUINode)
+  public init(content: () -> DynamicForms::DynamicText)
+  public init(content: () -> DynamicForms::DynamicButton)
+  public init(content: () -> DynamicForms::DynamicStack)
+  public subscript<Value>(dynamicMember keyPath: Swift::WritableKeyPath<DynamicForms::DynamicUINode, Value>) -> Value {
+    get
+    set
+  }
+  @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_struct_equals(_ a: DynamicForms::DynamicForm, _ b: DynamicForms::DynamicForm) -> Swift::Bool
+}
+public struct DynamicSpacer : Swift::Equatable, DynamicForms::DynamicElement, Swift::Identifiable {
+  public init(id: DynamicForms::DynamicElementIdentifier = .uuid(), minLength: Swift::Double? = nil)
+  public var id: DynamicForms::DynamicElementIdentifier
+  @_hasInitialValue public var minLength: Swift::Double?
+  public var content: Swift::Never {
+    get
+  }
+  public var node: DynamicForms::DynamicElementNode {
+    get
+  }
+  public typealias Content = Swift::Never
+  public typealias ID = DynamicForms::DynamicElementIdentifier
+  @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_struct_equals(_ a: DynamicForms::DynamicSpacer, _ b: DynamicForms::DynamicSpacer) -> Swift::Bool
+}
+public struct DynamicStack : Swift::Equatable, DynamicForms::DynamicElement, Swift::Identifiable {
+  public enum Axis : Swift::Equatable {
+    case vertical
+    case horizontal
+    @_semantics("derived_enum_equals") @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_enum_equals(_ a: DynamicForms::DynamicStack.DynamicForms::Axis, _ b: DynamicForms::DynamicStack.DynamicForms::Axis) -> Swift::Bool
+    public func hash(into hasher: inout Swift::Hasher)
+    public var hashValue: Swift::Int {
+      get
+    }
+  }
+  public init(_ axis: DynamicForms::DynamicStack.DynamicForms::Axis, @DynamicForms::DynamicUIBuilder content: () -> DynamicForms::_DynamicTupleElement)
+  public let id: DynamicForms::DynamicElementIdentifier
+  public var axis: DynamicForms::DynamicStack.DynamicForms::Axis
+  private var storage: DynamicForms::DynamicElementNode
+  public var content: Swift::Never {
+    get
+  }
+  public var node: DynamicForms::DynamicElementNode {
+    get
+  }
+  public var children: [DynamicForms::DynamicElementNode] {
+    get
+    set
+  }
+  public typealias Content = Swift::Never
+  public typealias ID = DynamicForms::DynamicElementIdentifier
+  @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_struct_equals(_ a: DynamicForms::DynamicStack, _ b: DynamicForms::DynamicStack) -> Swift::Bool
+}
+public struct DynamicText : Swift::Equatable, Swift::Hashable, Swift::Identifiable {
+  public var id: DynamicForms::DynamicElementIdentifier
+  public let storage: DynamicForms::DynamicText.DynamicForms::Storage
+  @_hasInitialValue public var modifiers: [DynamicForms::DynamicText.DynamicForms::Modifier]
+  public init(storage: DynamicForms::DynamicText.DynamicForms::Storage, modifiers: [DynamicForms::DynamicText.DynamicForms::Modifier] = [])
+  public enum Modifier : Swift::Equatable, Swift::Hashable {
+    case accessibilityHeading(DynamicForms::DynamicText.DynamicForms::AccessibilityHeadingLevel)
+    case accessibilityLabel(DynamicForms::DynamicText)
+    case accessibilityTextContentType(DynamicForms::DynamicText.DynamicForms::AccessibilityTextContentType)
+    case baselineOffset(CoreFoundation::CGFloat)
+    case bold
+    case font(SwiftUICore::Font?)
+    case fontWeight(SwiftUICore::Font.SwiftUICore::Weight?)
+    case foregroundColor(SwiftUICore::Color?)
+    case italic
+    case kerning(CoreFoundation::CGFloat)
+    case strikethrough(active: Swift::Bool, color: SwiftUICore::Color?)
+    case tracking(CoreFoundation::CGFloat)
+    case underline(active: Swift::Bool, color: SwiftUICore::Color?)
+    @_semantics("derived_enum_equals") @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_enum_equals(_ a: DynamicForms::DynamicText.DynamicForms::Modifier, _ b: DynamicForms::DynamicText.DynamicForms::Modifier) -> Swift::Bool
+    public func hash(into hasher: inout Swift::Hasher)
+    public var hashValue: Swift::Int {
+      get
+    }
+  }
+  public enum Storage : Swift::Equatable, Swift::Hashable {
+    indirect case concatenated(DynamicForms::DynamicText, DynamicForms::DynamicText)
+    case localized(SwiftUICore::LocalizedStringKey, tableName: Swift::String?, bundle: Foundation::Bundle?, comment: Swift::StaticString?)
+    case verbatim(Swift::String)
+    public static func == (lhs: DynamicForms::DynamicText.DynamicForms::Storage, rhs: DynamicForms::DynamicText.DynamicForms::Storage) -> Swift::Bool
+    public func hash(into hasher: inout Swift::Hasher)
+    public var hashValue: Swift::Int {
+      get
+    }
+  }
+  public typealias ID = DynamicForms::DynamicElementIdentifier
+  @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_struct_equals(_ a: DynamicForms::DynamicText, _ b: DynamicForms::DynamicText) -> Swift::Bool
+  public func hash(into hasher: inout Swift::Hasher)
+  public var hashValue: Swift::Int {
+    get
+  }
+}
+extension DynamicForms::DynamicText {
+  public init(verbatim content: Swift::String)
+  @_disfavoredOverload public init<S>(_ content: S) where S : Swift::StringProtocol
+  public init(_ key: SwiftUICore::LocalizedStringKey, tableName: Swift::String? = nil, bundle: Foundation::Bundle? = nil, comment: Swift::StaticString? = nil)
+  public static func + (lhs: DynamicForms::DynamicText, rhs: DynamicForms::DynamicText) -> DynamicForms::DynamicText
+  public func baselineOffset(_ baselineOffset: CoreFoundation::CGFloat) -> DynamicForms::DynamicText
+  public func bold() -> DynamicForms::DynamicText
+  public func font(_ font: SwiftUICore::Font?) -> DynamicForms::DynamicText
+  public func fontWeight(_ weight: SwiftUICore::Font.SwiftUICore::Weight?) -> DynamicForms::DynamicText
+  public func foregroundColor(_ color: SwiftUICore::Color?) -> DynamicForms::DynamicText
+  public func italic() -> DynamicForms::DynamicText
+  public func kerning(_ kerning: CoreFoundation::CGFloat) -> DynamicForms::DynamicText
+  public func strikethrough(_ active: Swift::Bool = true, color: SwiftUICore::Color? = nil) -> DynamicForms::DynamicText
+  public func tracking(_ tracking: CoreFoundation::CGFloat) -> DynamicForms::DynamicText
+  public func underline(_ active: Swift::Bool = true, color: SwiftUICore::Color? = nil) -> DynamicForms::DynamicText
+}
+extension DynamicForms::DynamicText {
+  public enum AccessibilityTextContentType : Swift::String, Swift::Equatable, Swift::Hashable {
+    case console, fileSystem, messaging, narrative, plain, sourceCode, spreadsheet, wordProcessing
+    @inlinable public init?(rawValue: Swift::String)
+    public typealias RawValue = Swift::String
+    public var rawValue: Swift::String {
+      @inlinable get
+    }
+  }
+  public enum AccessibilityHeadingLevel : Swift::String, Swift::Equatable, Swift::Hashable {
+    case h1, h2, h3, h4, h5, h6, unspecified
+    @inlinable public init?(rawValue: Swift::String)
+    public typealias RawValue = Swift::String
+    public var rawValue: Swift::String {
+      @inlinable get
+    }
+  }
+}
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, watchOS 8.0, *)
+extension DynamicForms::DynamicText {
+  public func accessibilityHeading(_ headingLevel: DynamicForms::DynamicText.DynamicForms::AccessibilityHeadingLevel) -> DynamicForms::DynamicText
+  public func accessibilityLabel(_ string: Swift::String) -> DynamicForms::DynamicText
+  public func accessibilityLabel<S>(_ string: S) -> DynamicForms::DynamicText where S : Swift::StringProtocol
+  public func accessibilityLabel(_ key: SwiftUICore::LocalizedStringKey, tableName: Swift::String? = nil, bundle: Foundation::Bundle? = nil, comment: Swift::StaticString? = nil) -> DynamicForms::DynamicText
+  public func accessibilityTextContentType(_ type: DynamicForms::DynamicText.DynamicForms::AccessibilityTextContentType) -> DynamicForms::DynamicText
+}
+extension Swift::String {
+  public init(state: DynamicForms::DynamicText, locale: Foundation::Locale? = nil)
+}
+extension DynamicForms::DynamicText : CustomDump::CustomDumpRepresentable {
+  public var customDumpValue: Any {
+    get
+  }
+}
+extension DynamicForms::DynamicText : Swift::ExpressibleByStringLiteral {
+  public init(stringLiteral value: Swift::String)
+  public typealias ExtendedGraphemeClusterLiteralType = Swift::String
+  public typealias StringLiteralType = Swift::String
+  public typealias UnicodeScalarLiteralType = Swift::String
+}
+extension DynamicForms::DynamicText : DynamicForms::DynamicElement {
+  public var content: Swift::Never {
+    get
+  }
+  public var node: DynamicForms::DynamicElementNode {
+    get
+    set
+  }
+  public typealias Content = Swift::Never
+}
+public struct DynamicTextField : Swift::Equatable, DynamicForms::DynamicElement {
+  public init(id: DynamicForms::DynamicElementIdentifier = .uuid(), key: Swift::String? = nil, value: Swift::String)
+  public var id: DynamicForms::DynamicElementIdentifier
+  @_hasInitialValue public var key: Swift::String?
+  public var value: Swift::String
+  public var content: Swift::Never {
+    get
+  }
+  public var node: DynamicForms::DynamicElementNode {
+    get
+  }
+  public typealias Content = Swift::Never
+  @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_struct_equals(_ a: DynamicForms::DynamicTextField, _ b: DynamicForms::DynamicTextField) -> Swift::Bool
+}
+public struct DynamicTextView : Swift::Equatable, DynamicForms::DynamicElement {
+  public init(id: DynamicForms::DynamicElementIdentifier = .uuid(), value: Swift::String)
+  public var id: DynamicForms::DynamicElementIdentifier
+  public var value: Swift::String
+  public var content: Swift::Never {
+    get
+  }
+  public var node: DynamicForms::DynamicElementNode {
+    get
+  }
+  public typealias Content = Swift::Never
+  @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_struct_equals(_ a: DynamicForms::DynamicTextView, _ b: DynamicForms::DynamicTextView) -> Swift::Bool
+}
+public struct DynamicToggle : Swift::Equatable, DynamicForms::DynamicElement {
+  public var id: DynamicForms::DynamicElementIdentifier
+  public var value: Swift::Bool
+  public var label: DynamicForms::DynamicElementNode
+  public init(_ title: Swift::String, id: DynamicForms::DynamicElementIdentifier = .uuid(), value: Swift::Bool = false)
+  public init<Label>(id: DynamicForms::DynamicElementIdentifier = .uuid(), value: Swift::Bool = false, label: () -> Label) where Label : DynamicForms::DynamicElement
+  public var content: Swift::Never {
+    get
+  }
+  public var node: DynamicForms::DynamicElementNode {
+    get
+  }
+  public typealias Content = Swift::Never
+  @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_struct_equals(_ a: DynamicForms::DynamicToggle, _ b: DynamicForms::DynamicToggle) -> Swift::Bool
+}
+public struct _DynamicTupleElement : DynamicForms::DynamicElement {
+  public var content: Swift::Never {
+    get
+  }
+  public var elements: [DynamicForms::AnyDynamicElement]
+  public var node: DynamicForms::DynamicElementNode {
+    get
+  }
+  public init<T0>(_ t0: T0) where T0 : DynamicForms::DynamicElement
+  public init<T0, T1>(_ t0: T0, _ t1: T1) where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement
+  public init<T0, T1, T2>(_ t0: T0, _ t1: T1, _ t2: T2) where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement
+  public init<T0, T1, T2, T3>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3) where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement
+  public init<T0, T1, T2, T3, T4>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4) where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement, T4 : DynamicForms::DynamicElement
+  public init<T0, T1, T2, T3, T4, T5>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5) where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement, T4 : DynamicForms::DynamicElement, T5 : DynamicForms::DynamicElement
+  public init<T0, T1, T2, T3, T4, T5, T6>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6) where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement, T4 : DynamicForms::DynamicElement, T5 : DynamicForms::DynamicElement, T6 : DynamicForms::DynamicElement
+  public init<T0, T1, T2, T3, T4, T5, T6, T7>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6, _ t7: T7) where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement, T4 : DynamicForms::DynamicElement, T5 : DynamicForms::DynamicElement, T6 : DynamicForms::DynamicElement, T7 : DynamicForms::DynamicElement
+  public init<T0, T1, T2, T3, T4, T5, T6, T7, T8>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6, _ t7: T7, _ t8: T8) where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement, T4 : DynamicForms::DynamicElement, T5 : DynamicForms::DynamicElement, T6 : DynamicForms::DynamicElement, T7 : DynamicForms::DynamicElement, T8 : DynamicForms::DynamicElement
+  public init<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6, _ t7: T7, _ t8: T8, _ t9: T9) where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement, T4 : DynamicForms::DynamicElement, T5 : DynamicForms::DynamicElement, T6 : DynamicForms::DynamicElement, T7 : DynamicForms::DynamicElement, T8 : DynamicForms::DynamicElement, T9 : DynamicForms::DynamicElement
+  public typealias Content = Swift::Never
+  @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_struct_equals(_ a: DynamicForms::_DynamicTupleElement, _ b: DynamicForms::_DynamicTupleElement) -> Swift::Bool
+}
+public struct DynamicElementActionIdentifier : Swift::Equatable, Swift::Hashable, Swift::RawRepresentable {
+  public init(rawValue: Swift::String)
+  public var rawValue: Swift::String
+  public typealias RawValue = Swift::String
+}
+extension DynamicForms::DynamicElementActionIdentifier : Swift::ExpressibleByStringLiteral {
+  public init(stringLiteral value: Swift::String)
+  public typealias ExtendedGraphemeClusterLiteralType = Swift::String
+  public typealias StringLiteralType = Swift::String
+  public typealias UnicodeScalarLiteralType = Swift::String
+}
+extension DynamicForms::DynamicElementActionIdentifier : Swift::ExpressibleByStringInterpolation {
+  public init(stringInterpolation value: Swift::DefaultStringInterpolation)
+  public typealias StringInterpolation = Swift::DefaultStringInterpolation
+}
+public struct DynamicElementIdentifier : Swift::Equatable, Swift::Hashable, Swift::RawRepresentable {
+  public init(rawValue: Swift::String)
+  public var rawValue: Swift::String
+  public typealias RawValue = Swift::String
+}
+extension DynamicForms::DynamicElementIdentifier : Swift::ExpressibleByStringLiteral {
+  public init(stringLiteral value: Swift::String)
+  public typealias ExtendedGraphemeClusterLiteralType = Swift::String
+  public typealias StringLiteralType = Swift::String
+  public typealias UnicodeScalarLiteralType = Swift::String
+}
+extension DynamicForms::DynamicElementIdentifier : Swift::ExpressibleByStringInterpolation {
+  public init(stringInterpolation value: Swift::DefaultStringInterpolation)
+  public typealias StringInterpolation = Swift::DefaultStringInterpolation
+}
+extension DynamicForms::DynamicElementIdentifier {
+  public static func uuid(_ value: Foundation::UUID = .init()) -> DynamicForms::DynamicElementIdentifier
+}
+indirect public enum DynamicElementNode : Swift::Equatable, Swift::Identifiable {
+  case primitive(DynamicForms::DynamicUINode)
+  case group([DynamicForms::DynamicElementNode])
+  public typealias ID = Swift::AnyHashable
+  @_semantics("derived_enum_equals") @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_enum_equals(_ a: DynamicForms::DynamicElementNode, _ b: DynamicForms::DynamicElementNode) -> Swift::Bool
+}
+extension DynamicForms::DynamicElementNode {
+  public var id: Swift::AnyHashable {
+    get
+  }
+  public var primitive: DynamicForms::DynamicUINode? {
+    get
+    set
+  }
+  public var group: [DynamicForms::DynamicElementNode]? {
+    get
+    set
+  }
+  public var nodes: [DynamicForms::DynamicElementNode] {
+    get
+  }
+}
+public struct DynamicFormClient {
+  public init()
+  public init<S>(_ subject: S) where S : Combine::Subject, S.Failure == Swift::Never, S.Output == DynamicForms::DynamicFormClient.DynamicForms::Event
+  public init(send: DynamicForms::DynamicFormClient.DynamicForms::Operations.DynamicForms::SendEvent, publisher: Combine::AnyPublisher<DynamicForms::DynamicFormClient.DynamicForms::Event, Swift::Never>)
+  public var send: DynamicForms::DynamicFormClient.DynamicForms::Operations.DynamicForms::SendEvent
+  public var publisher: Combine::AnyPublisher<DynamicForms::DynamicFormClient.DynamicForms::Event, Swift::Never>
+  public func publisher(for event: DynamicForms::DynamicFormClient.DynamicForms::Event) -> Combine::AnyPublisher<Swift::Void, Swift::Never>
+  public func publisher(for action: DynamicForms::DynamicElementActionIdentifier) -> Combine::AnyPublisher<Swift::Void, Swift::Never>
+}
+extension DynamicForms::DynamicFormClient {
+  public struct Event : Swift::Equatable, Swift::Hashable {
+    public init(id: DynamicForms::DynamicElementIdentifier, action: DynamicForms::DynamicElementActionIdentifier)
+    public var id: DynamicForms::DynamicElementIdentifier
+    public var action: DynamicForms::DynamicElementActionIdentifier
+    @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_struct_equals(_ a: DynamicForms::DynamicFormClient.DynamicForms::Event, _ b: DynamicForms::DynamicFormClient.DynamicForms::Event) -> Swift::Bool
+    public func hash(into hasher: inout Swift::Hasher)
+    public var hashValue: Swift::Int {
+      get
+    }
+  }
+}
+extension DynamicForms::DynamicFormClient {
+  @_hasInitialValue public static let shared: DynamicForms::DynamicFormClient
+}
+extension DynamicForms::DynamicFormClient {
+  public enum Operations {
+  }
+}
+extension DynamicForms::DynamicFormClient.DynamicForms::Operations {
+  public struct SendEvent : Prelude::Function {
+    public typealias Input = DynamicForms::DynamicFormClient.DynamicForms::Event
+    public typealias Output = Swift::Void
+    public init(_ call: @escaping DynamicForms::DynamicFormClient.DynamicForms::Operations.DynamicForms::SendEvent.Prelude::Signature)
+    public var call: DynamicForms::DynamicFormClient.DynamicForms::Operations.DynamicForms::SendEvent.Prelude::Signature
+  }
+}
+@_functionBuilder public struct DynamicUIBuilder {
+  public static func buildBlock<T0>(_ t0: T0) -> DynamicForms::_DynamicTupleElement where T0 : DynamicForms::DynamicElement
+  public static func buildBlock<T0, T1>(_ t0: T0, _ t1: T1) -> DynamicForms::_DynamicTupleElement where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement
+  public static func buildBlock<T0, T1, T2>(_ t0: T0, _ t1: T1, _ t2: T2) -> DynamicForms::_DynamicTupleElement where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement
+  public static func buildBlock<T0, T1, T2, T3>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3) -> DynamicForms::_DynamicTupleElement where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement
+  public static func buildBlock<T0, T1, T2, T3, T4>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4) -> DynamicForms::_DynamicTupleElement where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement, T4 : DynamicForms::DynamicElement
+  public static func buildBlock<T0, T1, T2, T3, T4, T5>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5) -> DynamicForms::_DynamicTupleElement where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement, T4 : DynamicForms::DynamicElement, T5 : DynamicForms::DynamicElement
+  public static func buildBlock<T0, T1, T2, T3, T4, T5, T6>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6) -> DynamicForms::_DynamicTupleElement where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement, T4 : DynamicForms::DynamicElement, T5 : DynamicForms::DynamicElement, T6 : DynamicForms::DynamicElement
+  public static func buildBlock<T0, T1, T2, T3, T4, T5, T6, T7>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6, _ t7: T7) -> DynamicForms::_DynamicTupleElement where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement, T4 : DynamicForms::DynamicElement, T5 : DynamicForms::DynamicElement, T6 : DynamicForms::DynamicElement, T7 : DynamicForms::DynamicElement
+  public static func buildBlock<T0, T1, T2, T3, T4, T5, T6, T7, T8>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6, _ t7: T7, _ t8: T8) -> DynamicForms::_DynamicTupleElement where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement, T4 : DynamicForms::DynamicElement, T5 : DynamicForms::DynamicElement, T6 : DynamicForms::DynamicElement, T7 : DynamicForms::DynamicElement, T8 : DynamicForms::DynamicElement
+  public static func buildBlock<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9>(_ t0: T0, _ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6, _ t7: T7, _ t8: T8, _ t9: T9) -> DynamicForms::_DynamicTupleElement where T0 : DynamicForms::DynamicElement, T1 : DynamicForms::DynamicElement, T2 : DynamicForms::DynamicElement, T3 : DynamicForms::DynamicElement, T4 : DynamicForms::DynamicElement, T5 : DynamicForms::DynamicElement, T6 : DynamicForms::DynamicElement, T7 : DynamicForms::DynamicElement, T8 : DynamicForms::DynamicElement, T9 : DynamicForms::DynamicElement
+}
+indirect public enum DynamicUINode : Swift::Equatable, Swift::Identifiable {
+  case button(DynamicForms::DynamicButton)
+  case spacer(DynamicForms::DynamicSpacer)
+  case stack(DynamicForms::DynamicStack)
+  case text(DynamicForms::DynamicText)
+  case textField(DynamicForms::DynamicTextField)
+  case textView(DynamicForms::DynamicTextView)
+  case toggle(DynamicForms::DynamicToggle)
+  public typealias ID = DynamicForms::DynamicElementIdentifier
+  @_semantics("derived_enum_equals") @_implements(Swift::Equatable, ==(_:_:)) public static func __derived_enum_equals(_ a: DynamicForms::DynamicUINode, _ b: DynamicForms::DynamicUINode) -> Swift::Bool
+}
+extension DynamicForms::DynamicUINode {
+  public var id: DynamicForms::DynamicElementIdentifier {
+    get
+  }
+  public var spacer: DynamicForms::DynamicSpacer? {
+    get
+    set
+  }
+  public var button: DynamicForms::DynamicButton? {
+    get
+    set
+  }
+  public var stack: DynamicForms::DynamicStack? {
+    get
+    set
+  }
+  public var text: DynamicForms::DynamicText? {
+    get
+    set
+  }
+  public var textField: DynamicForms::DynamicTextField? {
+    get
+    set
+  }
+  public var textView: DynamicForms::DynamicTextView? {
+    get
+    set
+  }
+  public var toggle: DynamicForms::DynamicToggle? {
+    get
+    set
+  }
+}
+public protocol DynamicElement : Swift::Equatable {
+  associatedtype Content : DynamicForms::DynamicElement
+  var content: Self.Content { get }
+  var node: DynamicForms::DynamicElementNode { get }
+}
+extension DynamicForms::DynamicElement {
+  public var node: DynamicForms::DynamicElementNode {
+    get
+  }
+}
+extension Swift::Never : DynamicForms::DynamicElement {
+  public var content: Swift::Never {
+    get
+  }
+  public var node: DynamicForms::DynamicElementNode {
+    get
+  }
+  public typealias Content = Swift::Never
+}
+extension Swift::Optional : DynamicForms::DynamicElement where Wrapped : DynamicForms::DynamicElement {
+  public var content: Swift::Never {
+    get
+  }
+  public var node: DynamicForms::DynamicElementNode {
+    get
+  }
+  public typealias Content = Swift::Never
+}
+extension DynamicForms::DynamicStack.DynamicForms::Axis : Swift::Hashable {}
+extension DynamicForms::DynamicText.DynamicForms::AccessibilityTextContentType : Swift::RawRepresentable {}
+extension DynamicForms::DynamicText.DynamicForms::AccessibilityHeadingLevel : Swift::RawRepresentable {}
