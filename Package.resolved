@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/capturecontext/swift-prelude.git",
       "state" : {
-        "revision" : "078d0d8e0b92671163a53a42528c9473b7a77a19",
-        "version" : "0.3.0"
+        "branch" : "cctx/myo-local",
+        "revision" : "078d0d8e0b92671163a53a42528c9473b7a77a19"
       }
     },
     {
