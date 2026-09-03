@@ -29,7 +29,7 @@ let package = Package(
     ),
     .package(
       url: "https://github.com/capturecontext/swift-prelude.git",
-      .upToNextMinor(from: "0.3.0")
+      branch: "cctx/myo-local"
     ),
     .package(
       url: "https://github.com/capturecontext/swift-generic-color.git",
