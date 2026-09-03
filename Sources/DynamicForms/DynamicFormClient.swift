@@ -67,14 +67,15 @@ extension DynamicFormClient {
 }
 
 extension DynamicFormClient.Operations {
-  public struct SendEvent: Function {
+  public struct SendEvent: SyncFunction {
     public typealias Input = DynamicFormClient.Event
     public typealias Output = Void
     
-    public init(_ call: @escaping Signature) {
+    public init(_ call: @escaping SyncSignature) {
       self.call = call
     }
     
-    public var call: Signature
+    public var call: SyncSignature
+    public func callAsFunction(_ input: Input) { call(input) }
   }
 }

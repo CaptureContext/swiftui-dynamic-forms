@@ -29,6 +29,16 @@ final class DynamicFormsTests: XCTestCase {
     }
     
     let actual = SomeComponent1().node
+    func text(
+      _ value: String,
+      id: DynamicElementIdentifier?
+    ) -> DynamicText {
+      var text = DynamicText(value)
+      text.id = id ?? .uuid()
+      return text
+    }
+    let firstStack = actual.primitive?.stack?.children[0].primitive?.stack
+    let secondStack = actual.primitive?.stack?.children[1].primitive?.stack
     let expected = DynamicElementNode.primitive(.stack(
       DynamicStack(
         .vertical,
@@ -37,20 +47,20 @@ final class DynamicFormsTests: XCTestCase {
           .primitive(.stack(
             DynamicStack(
               .horizontal,
-              id: actual.primitive?.stack?.children[0].primitive?.stack?.id ?? .uuid(),
+              id: firstStack?.id ?? .uuid(),
               storage: .group([
-                .primitive(.text(DynamicText("Hello"))),
-                .primitive(.text(DynamicText("World")))
+                .primitive(.text(text("Hello", id: firstStack?.children[0].primitive?.text?.id))),
+                .primitive(.text(text("World", id: firstStack?.children[1].primitive?.text?.id)))
               ])
             )
           )),
           .primitive(.stack(
             DynamicStack(
               .horizontal,
-              id: actual.primitive?.stack?.children[1].primitive?.stack?.id ?? .uuid(),
+              id: secondStack?.id ?? .uuid(),
               storage: .group([
-                .primitive(.text(DynamicText("Hello"))),
-                .primitive(.text(DynamicText("World")))
+                .primitive(.text(text("Hello", id: secondStack?.children[0].primitive?.text?.id))),
+                .primitive(.text(text("World", id: secondStack?.children[1].primitive?.text?.id)))
               ])
             )
           ))

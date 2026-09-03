@@ -21,19 +21,19 @@ let package = Package(
   dependencies: [
     .package(
       url: "https://github.com/pointfreeco/swift-case-paths.git",
-      .upToNextMinor(from: "0.11.0")
+      .upToNextMajor(from: "1.10.0")
     ),
     .package(
       url: "https://github.com/pointfreeco/swift-custom-dump.git",
-      .upToNextMinor(from: "0.6.1")
+      .upToNextMajor(from: "1.7.3")
     ),
     .package(
       url: "https://github.com/capturecontext/swift-prelude.git",
-      branch: "develop"
+      .upToNextMinor(from: "0.3.0")
     ),
     .package(
       url: "https://github.com/capturecontext/swift-generic-color.git",
-      branch: "main"
+      .upToNextMinor(from: "0.5.0")
     )
   ],
   targets: [
